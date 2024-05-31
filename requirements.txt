@@ -2,3 +2,4 @@ pandas
 pytelegrambotapi
 scikit-learn
 flake8
+fuzzywuzzy
