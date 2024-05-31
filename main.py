@@ -117,6 +117,11 @@ def echo_all(message):
         get_rec(message.chat.id, random_rec)
         bot.send_message(message.chat.id, "Для нового случайного рецепта напиши слово  <b>рандом</b>\n\n"
                                           "Для поиска блюда напиши 'хочу Название блюда'", parse_mode='html')
+    elif 'хочу' in message_lower.split():
+        dish = re.search(r'хочу\s+(.+)', message.text).group(1)
+        get_similar_rec(message.chat.id, dish)
+        bot.send_message(message.chat.id, "Для нового случайного рецепта напиши слово  <b>рандом</b>\n\n"
+                                          "Для поиска блюда напиши 'хочу Название блюда'", parse_mode='html')
     else:
         # сохранение аллергенов в бдшку
         allergens = message.text
