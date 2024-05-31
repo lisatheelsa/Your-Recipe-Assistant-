@@ -7,7 +7,7 @@ import threading
 import pandas as pd
 
 # Импортируем наш бот и необходимые функции
-from bot_code import bot, save_user_info, save_message, send_welcome, get_rec, get_similar_rec
+from main import bot, save_user_info, save_message, send_welcome, get_rec, get_similar_rec
 
 # Создаем блокировку для базы данных
 db_lock = threading.Lock()
