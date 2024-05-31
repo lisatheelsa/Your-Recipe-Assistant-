@@ -1,0 +1,4 @@
+pandas
+pytelegrambotapi
+scikit-learn
+unittest
