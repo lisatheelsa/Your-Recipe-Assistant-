@@ -63,7 +63,7 @@ def send_welcome(message, rerun=0):
                      parse_mode='html')
 
     bot.send_message(message.chat.id, "Введите через запятую Ваши аллергены. Например: семечки, яблоко, "
-                                      "капуста")
+                                      "капуста. Если их нет, напишите: нет.")
 
 def get_rec(chat_id, id):
     bot.send_message(chat_id,
@@ -125,6 +125,9 @@ def echo_all(message):
     else:
         # сохранение аллергенов в бдшку
         allergens = message.text
+        if allergens.lower() == 'нет':
+            bot.send_message(message.chat.id, 'У вас нет аллергенов')
+
         all_allergens = allergens.split(',')
         bot.send_message(message.chat.id,
                          f"Ваши аллергены {allergens.split(',')} были сохранены. Если хотите их изменить, "
