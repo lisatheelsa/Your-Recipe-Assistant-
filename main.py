@@ -137,12 +137,5 @@ def echo_all(message):
             cursor.execute("UPDATE users SET allergen = ? WHERE user_id = ?", (allergens, message.from_user.id))
             conn.commit()
 
-        # после аллергенов челику можно рекомендовать то что он хочет
-        bot.send_message(message.chat.id,
-                         "Теперь ты можешь выбрать что будешь кушать\n\n"
-                         "Для случайного рецепта напишите слово <b>рандом</b>\n\n"
-                         "Для поиска блюда напиши 'хочу Название блюда' (в именительном падеже,"
-                         "единственном числе)", parse_mode='html')
-
 
 bot.infinity_polling()
