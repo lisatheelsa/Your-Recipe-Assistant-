@@ -21,6 +21,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Run linter with timeout
+      run: |
+        timeout 30 flake8 . || [[ $? -eq 124 ]]
+
     - name: Run tests with timeout
       run: |
         timeout 30 python -m unittest discover || [[ $? -eq 124 ]]
